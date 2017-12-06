@@ -11,5 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "webpack": "^3.10.0"
   }
 }
