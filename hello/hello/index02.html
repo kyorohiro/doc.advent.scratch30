@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scratch WebGL rendering demo</title>
+    <style>
+        #scratch-stage { width: 480px; }
+    </style>
+</head>
+<body style="background: lightsteelblue">
+<canvas id="scratch-stage" width="10" height="10" style="border:3px dashed black"></canvas>
+
+<script src="scratch-render.js"></script>
+<script>
+const keyMap = new Map([
+    [37, 'left'],
+    [39, 'right'],
+    [38, 'up'],
+    [40, 'down'], 
+    [32, 'space'], 
+]);
+</script>
+<script>
+    var canvas = document.getElementById('scratch-stage');
+    var renderer = new RenderWebGL(canvas);
+    var drawableID = renderer.createDrawable();
+    var x = 0;
+    var y = 0;
+    console.log(""+drawableID);
+
+    document.onkeydown = function (ev) {
+        switch(keyMap.get(ev.keyCode)) {
+            case 'left':
+            x -=1;
+            break;
+            case 'right':
+            x +=1;
+            break;
+            case 'up':
+            y +=1;
+            break;
+            case 'down':
+            y -=1;
+            break;
+            case 'space':            
+            break;
+        }
+        console.log(""+drawableID+":"+x+", "+y);
+
+        renderer.updateDrawableProperties(drawableID, {
+            position: [x, y],
+            scale: [20, 20],
+            direction: 90
+        });
+    };
+    //var drawableID2 = renderer.createDrawable();
+    var image = new Image();
+    image.crossOrigin = 'anonymous';
+    image.src = 'icon.png';
+    image.onload = function () {
+        var skinId = renderer.createBitmapSkin(image);
+        renderer.updateDrawableProperties(drawableID, {
+            skinId: skinId
+        });
+    };
+
+    function drawStep() {
+        renderer.draw();
+        requestAnimationFrame(drawStep);
+    }
+    drawStep();
+
+//    renderer.setDebugCanvas(document.getElementById('debug-canvas'));
+</script>
+</body>
+</html>
