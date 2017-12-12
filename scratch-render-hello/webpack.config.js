@@ -19,10 +19,6 @@ const base = {
                     presets: ['es2015']
                 }
             },
-            {
-                test: /node_modules[\\/](linebreak|grapheme-breaker)[\\/].*\.js$/,
-                loader: 'ify-loader'
-            }
         ]
     },
     plugins: process.env.NODE_ENV === 'production' ? [

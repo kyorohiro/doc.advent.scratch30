@@ -78,8 +78,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-//var scratchRender = require("scratch-render");
-var RenderWebGL = __webpack_require__(1);
+var ScratchRender = __webpack_require__(1);
 
 var Chara = function () {
     function Chara(renderer, name, imageUrl) {
@@ -199,7 +198,7 @@ var CharaB = function (_Chara2) {
 }(Chara);
 
 var canvas = document.getElementById('scratch-stage');
-var renderer = new RenderWebGL(canvas);
+var renderer = new ScratchRender(canvas);
 var chara1 = new CharaA(renderer, "test", "icon.png", -50, 0);
 var chara2 = new CharaB(renderer, "test", "icon.png", 50, 0);
 
