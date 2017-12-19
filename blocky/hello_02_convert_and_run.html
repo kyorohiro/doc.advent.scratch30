@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockly Demo: Fixed Blockly</title>
+  <script src="./blockly_compressed.js"></script>
+  <script src="./blocks_compressed.js"></script>
+  <script src="./msg/js/en.js"></script>
+  <script src="./dart_compressed.js"></script>
+  <script src="./javascript_compressed.js"></script>
+
+</head>
+<body>
+  <button id="dartButton">Dart</button>
+  <button id="javascriptButton">Javascript</button>
+  <button id="runButton" style="background-color: red;">Run</button>
+
+  <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
+  <xml id="toolbox" style="display: none">
+    <block type="math_number"></block>
+    <block type="controls_if"></block>
+    <block type="logic_compare"></block>
+    <block type="controls_repeat_ext"></block>
+    <block type="math_number"></block>
+    <block type="math_arithmetic"></block>
+    <block type="text"></block>
+    <block type="text_print"></block>
+  </xml>
+  <script>
+    var blockyWorkspace = Blockly.inject('blocklyDiv',
+        {toolbox: document.getElementById('toolbox')});
+
+    var dartButton = document.getElementById("dartButton");
+    dartButton.addEventListener("click", function(){
+      var code = Blockly.Dart.workspaceToCode(blockyWorkspace);
+      alert(code);
+    });
+
+    var javascriptButton = document.getElementById("javascriptButton");
+    javascriptButton.addEventListener("click", function(){
+      var code = Blockly.JavaScript.workspaceToCode(blockyWorkspace);
+      alert(code);
+    });
+
+    var runButton = document.getElementById("runButton");
+    runButton.addEventListener("click", function(){
+      var code = Blockly.JavaScript.workspaceToCode(blockyWorkspace);
+      console.log(code);
+      try {
+        eval(code);
+      } catch (e) {
+        alert(JSON.stringify(e));
+      }
+    });
+
+  </script>
+
+</body>
+</html>
