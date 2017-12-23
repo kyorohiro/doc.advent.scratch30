@@ -1,0 +1,25 @@
+{
+  "name": "scratch-vm-test",
+  "version": "1.0.0",
+  "description": "mkdir scratch-vm-test cd scratch-vm-test/ npm init -f npm install --save-dev webpack babel-core babel-loader babel-eslint babel-preset-es2015 npm install --save-dev webpack web-dev-server copy-webpack-plugin npm install --save-dev scratch-vm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "copy-webpack-plugin": "^4.3.1",
+    "scratch-audio": "0.1.0-prerelease.1513803406",
+    "scratch-render": "0.1.0-prerelease.1513807417",
+    "scratch-storage": "^0.3.0",
+    "scratch-vm": "0.1.0-prerelease.1513889734-prerelease.1513889749",
+    "web-dev-server": "^1.1.1",
+    "webpack": "^3.10.0"
+  }
+}
