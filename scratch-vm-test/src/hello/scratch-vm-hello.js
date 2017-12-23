@@ -72,3 +72,4 @@ startButton.onclick = function() {
 stopButton.onclick = function() {
 	vm.stopAll();
 };
+
