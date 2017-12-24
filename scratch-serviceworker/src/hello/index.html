@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scratch WebGL rendering demo</title>
+    <style>
+        #scratch-stage { width: 480px; border:3px dashed black;}
+    </style>
+</head>
+<body style="background: lightsteelblue">
+<canvas id="scratch-stage"></canvas>
+<br>
+<button id="start-button">Start</button>
+<button id="stop-button">Stop</button>
+<script src="scratch-vm-hello.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  console.log("Hello, World!!");
+  navigator.serviceWorker.register('sw.js').then(function(registration) {
+    // 登録成功
+    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+  }).catch(function(err) {
+    // 登録失敗 :(
+    console.log('ServiceWorker registration failed: ', err);
+  });
+}
+</script>
+</body>
+</html>
